@@ -24,7 +24,7 @@ public class WebDriverFactory {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--start-maximized");
-        return new ChromeDriver();
+        return new ChromeDriver(chromeOptions);
     };
 
     private static final Supplier<WebDriver> edgeDriver = () -> {
