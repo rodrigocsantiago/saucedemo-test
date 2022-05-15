@@ -1,16 +1,11 @@
-package com.rsantiago.saucedemo.framework.pages;
+package com.rsantiago.saucedemo.pages;
 
+import com.rsantiago.saucedemo.framework.pages.SeleniumBasePage;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.LoadableComponent;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsStringIgnoringCase;
@@ -67,7 +62,9 @@ public class LoginPage extends SeleniumBasePage<LoginPage> {
 
     public void loginAs(String userName, String password) {
         // Enter username and password
+        this.userName.clear();
         this.userName.sendKeys(userName);
+        this.password.clear();
         this.password.sendKeys(password);
 
         // Press login button
